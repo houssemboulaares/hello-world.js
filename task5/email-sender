@@ -1,0 +1,24 @@
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'houssem.boulaares.123@gmail.com',
+    pass: 'tartartar'
+  }
+});
+
+var mailOptions = {
+  from: 'houssem.boulaares.123@gmail.com',
+  to: 'hellohellohello.com',
+  subject: 'subject',
+  text: 'how are you'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
